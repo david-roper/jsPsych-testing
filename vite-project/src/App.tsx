@@ -1,17 +1,22 @@
 import { useState } from 'react'
 import './App.css'
 import {initJsPsych} from 'jspsych';
+import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
+
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  
   const jsPsych = initJsPsych();
 
-  return (
-    <>
-     
-    </>
-  )
+  const trial = {
+    type: htmlKeyboardResponse,
+    stimulus: 'Hello world!',
+  }
+
+  jsPsych.run([trial]);
+
+  return <></>
 }
 
 export default App
